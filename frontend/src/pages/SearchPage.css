@@ -1,0 +1,71 @@
+/* SearchPage.css */
+.catalogo-container {
+    padding: 20px 0;
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+
+}
+
+.catalogo-header {
+    margin-bottom: 25px;
+}
+
+.catalogo-title {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+}
+
+.button-view {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.button-view:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.catalogo-content {
+    margin-top: 20px;
+}
+
+.filter-sidebar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--accent-color);
+}
+
+/* Mobile filter button styles */
+.mobile-filter-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 15px;
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.mobile-filter-button:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.reset-filters {
+    cursor: pointer;
+    color: var(--bs-secondary);
+}
+
+/* Form controls styling */
+.form-select,
+.form-control {
+    border-color: var(--accent-color);
+}

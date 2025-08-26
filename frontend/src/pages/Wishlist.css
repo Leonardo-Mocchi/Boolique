@@ -1,0 +1,81 @@
+.wishlist-card {
+    max-width: 280px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-img-container {
+    position: relative;
+    padding-top: 133.33%;
+    /* 4:3 Aspect Ratio */
+    overflow: hidden;
+}
+
+.wishlist-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.selected-variants {
+    font-size: 0.875rem;
+
+
+
+
+
+    font-weight: 500;
+}
+
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.selected-variants {
+    font-size: 0.875rem;
+}
+
+.selected-variants .badge {
+    font-weight: 500;
+}
+
+/* Animazione per la rimozione degli elementi dalla wishlist */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s forwards;
+    pointer-events: none;
+    /* Previeni ulteriori click mentre si dissolve */
+}

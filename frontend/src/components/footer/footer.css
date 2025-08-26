@@ -1,0 +1,107 @@
+/* Classe personalizzata per nascondere elementi */
+@media (min-width: 768px) {
+    .custom-hidden {
+        display: block !important;
+    }
+}
+
+.info-box {
+    border: 1px solid var(--grigio-perla);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-color);
+    }
+
+    h5 {
+        margin-bottom: 1.2rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        font-family: 'Tenor Sans', sans-serif;
+        color: var(--accent-color);
+        letter-spacing: 0.5px;
+        position: relative;
+        padding-bottom: 10px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 230px;
+            height: 1px;
+            background-color: var(--accent-color);
+        }
+    }
+}
+
+.info-list {
+    li {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        font-family: 'Raleway', sans-serif;
+
+        a {
+            color: var(--testo-principale);
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 0;
+
+            &:before {
+                content: '›';
+                position: absolute;
+                left: -10px;
+                opacity: 0;
+                transition: all 0.3s ease;
+                color: var(--accent-color);
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: var(--accent-color);
+                padding-left: 15px;
+
+                &:before {
+                    opacity: 1;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.social-links {
+    a {
+        color: inherit;
+
+        &.facebook {
+            color: #3b5998;
+
+            &:hover {
+                color: #2d4373;
+            }
+        }
+
+        &.twitter {
+            color: #1da1f2;
+
+            &:hover {
+                color: #0d8ddb;
+            }
+        }
+
+        &.instagram {
+            color: #e4405f;
+
+            &:hover {
+                color: #bc2a8d;
+            }
+        }
+    }
+}
+
+/* Rimuove il colore azzurro dai link visitati */

@@ -1,0 +1,85 @@
+.cart-wrapper {
+    .product-image {
+        border: 1px solid var(--grigio-perla);
+        box-shadow: var(--card-shadow);
+        transition: all 0.3s ease;
+
+        &:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+
+    .product-image {
+        max-height: 150px;
+        max-width: 150px;
+    }
+
+    .quantity-selector {
+        width: 100%;
+        border: 1px solid var(--accent-color);
+        border-radius: 0;
+
+        margin-top: .8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        gap: 0.5rem;
+    }
+
+    .icon-quantity {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        max-width: 40px;
+        min-width: 40px;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        color: var(--testo-principale);
+        transition: var(--transition-smooth);
+
+        &:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: scale(1.05);
+        }
+    }
+
+    .summary-column {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--grigio-perla);
+        border-radius: 0;
+        box-shadow: var(--card-shadow);
+        padding: 20px;
+
+        h4 {
+            font-family: 'Tenor Sans', sans-serif;
+            color: var(--testo-principale);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .circle-color {
+        height: 20px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid var(--accent-color);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+}

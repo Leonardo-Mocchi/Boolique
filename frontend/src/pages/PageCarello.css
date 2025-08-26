@@ -1,0 +1,208 @@
+/* Cart Page Styles */
+.cart-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.cart-header {
+    color: var(--testo-principale);
+    margin-bottom: 1.5rem;
+}
+
+.cart-title {
+    font-family: 'Tenor Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.cart-divider {
+    border-color: rgba(125, 162, 188, 0.2);
+    margin: 1rem 0;
+}
+
+.cart-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-image {
+    border: 1px solid rgba(255, 217, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cart-item-details {
+    margin-left: 1rem;
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    color: rgba(255, 217, 0, 0.9);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.cart-item-price {
+    margin-top: 0.5rem;
+    color: white;
+}
+
+.cart-item-discount {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: line-through;
+    margin-right: 0.5rem;
+}
+
+.cart-item-quantity {
+    color: white;
+    margin-top: 0.25rem;
+}
+
+.cart-item-subtotal {
+    color: white;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.cart-remove-btn {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #ff8888;
+    border: 1px solid rgba(220, 53, 69, 0.4);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.cart-remove-btn:hover {
+    background-color: rgba(220, 53, 69, 0.4);
+    color: white;
+}
+
+.cart-quantity-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.cart-quantity-btn:hover:not(:disabled) {
+    background-color: rgba(255, 217, 0, 0.2);
+    border-color: rgba(255, 217, 0, 0.4);
+}
+
+.cart-quantity-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.cart-summary {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.cart-summary-title {
+    color: white;
+    font-family: "Delius Swash Caps", cursive;
+    margin-bottom: 1rem;
+}
+
+.cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.cart-summary-divider {
+    border-color: rgba(255, 217, 0, 0.3);
+    margin: 1rem 0;
+}
+
+.cart-summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.free-shipping-note {
+    color: #98ffc1;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.shipping-info {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 217, 0, 0.8), rgba(218, 165, 32, 0.9));
+    color: rgb(15, 0, 0);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(255, 217, 0, 1), rgba(218, 165, 32, 1));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.empty-cart-message {
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.continue-shopping-btn {
+    background-color: transparent;
+    color: rgba(255, 217, 0, 0.9);
+    border: 1px solid rgba(255, 217, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.continue-shopping-btn:hover {
+    background-color: rgba(255, 217, 0, 0.1);
+    color: rgba(255, 217, 0, 1);
+    border-color: rgba(255, 217, 0, 0.8);
+}

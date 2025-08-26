@@ -1,0 +1,204 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.75); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background-image: url("/img/sfondo5.png") !important;
+    padding: 3rem;
+    border-radius: 15px;
+    max-width: 1000px;
+    /* Aumentato da 500px a 800px */
+    width: 95%;
+    /* Aumentato da 90% a 95% */
+    min-height: 500px;
+    /* Aggiunta altezza minima */
+    position: relative;
+    border: none;
+    animation: slideIn 0.4s ease;
+    /* Aggiunte proprietà per centrare il contenuto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    color: #7DA2BC !important;
+    /* Colore della X */
+}
+
+.popup-close:hover {
+    background-color: #7DA2BC;
+    color: #F8F8F8 !important;
+    /* Colore della X in hover */
+    transform: rotate(90deg);
+}
+
+.newsletter-form .button {
+    background-color: #E5E5E5;
+    color: white;
+
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-right: 2.5rem;
+    /* Spazio per la freccia */
+}
+
+
+
+.newsletter-form .button:hover {
+    background-color: #7DA2BC;
+    transform: translateY(-2px);
+    padding-right: 3rem;
+    /* Aumenta lo spazio per l'animazione */
+}
+
+.newsletter-form .button:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.newsletter-form .button:active {
+    transform: translateY(0);
+}
+
+
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+
+    .card-title {
+        color: #7DA2BC;
+    }
+
+    .card-text {
+        color: #7DA2BC;
+    }
+}
+
+.popup-grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* colonna sinistra 40%, colonna destra 60% */
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.popup-left {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-right {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideDownFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.popup-overlay {
+    opacity: 1;
+    animation: fadeIn 1s ease forwards;
+}
+
+.popup-overlay.fading {
+    animation: fadeOut 0.75s ease forwards;
+}
+
+.popup-content {
+    animation: slideUpFadeIn 1s ease forwards;
+}
+
+.popup-content.fading {
+    animation: slideDownFadeOut 0.75s ease forwards;
+}

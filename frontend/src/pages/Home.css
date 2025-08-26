@@ -1,0 +1,21 @@
+.home_title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    transition: font-size 0.3s ease;
+}
+
+/* Additional breakpoints if needed */
+@media (max-width: 768px) {
+    .home_title {
+        margin: 1.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .home_title {
+        margin: 1rem 0;
+    }
+}

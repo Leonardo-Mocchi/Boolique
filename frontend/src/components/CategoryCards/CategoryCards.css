@@ -1,0 +1,34 @@
+.col_category {
+    height: 400px;
+    padding: 0;
+}
+
+.col_category .card {
+    height: 100%;
+    display: flex;
+    min-width: 250px;
+
+
+}
+
+.col_category .card img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+
+}
+
+.col_category h1 {
+    font-size: 1.8rem;
+    /* Further reduced from 2.2rem to 1.8rem */
+    font-weight: 400;
+    font-family: 'Tenor Sans', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.col_category .card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.5)
+}

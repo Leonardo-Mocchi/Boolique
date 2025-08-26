@@ -1,0 +1,93 @@
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 2rem 0;
+    margin: 30px 0;
+}
+
+.slider-content {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1.5rem 0;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+}
+
+.slider-content>* {
+    flex: 0 0 auto;
+    width: calc(33.333% - 1rem);
+    /* 3 cards per row on desktop */
+    max-width: 290px;
+    scroll-snap-align: start;
+}
+
+@media screen and (max-width: 1024px) {
+    .slider-content>* {
+        width: calc(50% - 1rem);
+        /* 2 cards per row on tablet */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider-content>* {
+        width: calc(100% - 1rem);
+        /* 1 card per row on mobile */
+    }
+}
+
+.slider-content>*:hover {
+    transform: scale(1.05);
+    /* Effetto hover per le card */
+}
+
+.slider-content::-webkit-scrollbar {
+    display: none;
+    /* Nasconde la scrollbar */
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    font-size: 1.3rem;
+    transform: translateY(-50%);
+    background-color: var(--nero-carbone);
+    color: var(--bianco-avorio);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-button.left {
+    left: 15px;
+}
+
+.slider-button.right {
+    right: 15px;
+}
+
+.slider-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bianco-avorio);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: gray;
+    padding: 2rem;
+}

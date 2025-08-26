@@ -1,0 +1,1526 @@
+{
+    "info": {
+        "_postman_id": "b8a7b28c-4c26-4c3b-8b77-c9e3aef94fb2",
+        "name": "Boolean E-commerce API Collection",
+        "description": "API collection for the Boolean high fashion e-commerce platform.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication Routes",
+            "item": [
+                {
+                    "name": "Register New User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"secure_password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/register",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "register"
+                            ]
+                        },
+                        "description": "Register a new user account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"secure_password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/login",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "login"
+                            ]
+                        },
+                        "description": "Authenticate a user and receive access token."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/profile",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "profile"
+                            ]
+                        },
+                        "description": "Get the profile of the currently authenticated user."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User Profile",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"address\": \"123 Main St\",\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"postal_code\": \"10001\",\n  \"country\": \"USA\",\n  \"phone\": \"123-456-7890\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/profile",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "profile"
+                            ]
+                        },
+                        "description": "Update the profile of the currently authenticated user."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Change Password",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"currentPassword\": \"secure_password123\",\n  \"newPassword\": \"new_secure_password456\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/change-password",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "change-password"
+                            ]
+                        },
+                        "description": "Change the password of the currently authenticated user."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/auth/logout",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "logout"
+                            ]
+                        },
+                        "description": "Logout the currently authenticated user."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Wardrobe Section Routes",
+            "item": [
+                {
+                    "name": "Get All Wardrobe Sections",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wardrobe-sections",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wardrobe-sections"
+                            ]
+                        },
+                        "description": "Returns all wardrobe sections with their categories."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Categories by Wardrobe Section",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wardrobe-sections/:slug/categories",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wardrobe-sections",
+                                ":slug",
+                                "categories"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "tops-and-coats",
+                                    "description": "The slug of the wardrobe section to retrieve categories for"
+                                }
+                            ]
+                        },
+                        "description": "Returns all categories for the specified wardrobe section (by slug)."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Products by Wardrobe Section",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wardrobe-sections/:slug/products",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wardrobe-sections",
+                                ":slug",
+                                "products"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "tops-and-coats",
+                                    "description": "The slug of the wardrobe section to retrieve products for"
+                                }
+                            ]
+                        },
+                        "description": "Returns all products for the specified wardrobe section (by slug)."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Category Routes",
+            "item": [
+                {
+                    "name": "Get All Categories",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/categories",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories"
+                            ]
+                        },
+                        "description": "Returns a flat list of all categories."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Products by Category",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/categories/:slug",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories",
+                                ":slug"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "earrings",
+                                    "description": "The slug of the category to retrieve products for"
+                                }
+                            ]
+                        },
+                        "description": "Returns products for a specific category by its slug."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Product Routes",
+            "item": [
+                {
+                    "name": "Get All Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products"
+                            ]
+                        },
+                        "description": "Returns all products."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Random Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/random?exclude=1&category_id=2&limit=5",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "random"
+                            ],
+                            "query": [
+                                {
+                                    "key": "exclude",
+                                    "value": "1",
+                                    "description": "ID of product to exclude (useful for related products)"
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "2",
+                                    "description": "Filter by category ID"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "5",
+                                    "description": "Maximum number of products to return"
+                                }
+                            ]
+                        },
+                        "description": "Returns a random selection of products. Useful for related products on product detail pages. Supports filtering by category and excluding specific products."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Discounted Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/discounted",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "discounted"
+                            ]
+                        },
+                        "description": "Returns all discounted products."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Bestseller Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/bestsellers",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "bestsellers"
+                            ]
+                        },
+                        "description": "Retrieve the top 10 best-selling products."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Product by Slug",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/:slug",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ":slug"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "lunara",
+                                    "description": "The slug of the product to retrieve"
+                                }
+                            ]
+                        },
+                        "description": "Returns details of a specific product by its slug."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Check Product Availability",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"items\": [\n    {\n      \"product_variation_id\": 1,\n      \"quantity\": 2\n    },\n    {\n      \"product_variation_id\": 5,\n      \"quantity\": 1\n    }\n  ]\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/check-availability",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "check-availability"
+                            ]
+                        },
+                        "description": "Check if products are available in requested quantities."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Color-Specific Product Images",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/product-images/:productId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "product-images",
+                                ":productId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "productId",
+                                    "value": "1",
+                                    "description": "The ID of the product"
+                                }
+                            ]
+                        },
+                        "description": "Get color-specific images for a product."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Product Images",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/images/:productId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "images",
+                                ":productId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "productId",
+                                    "value": "1",
+                                    "description": "The ID of the product"
+                                }
+                            ]
+                        },
+                        "description": "Get all images for a specific product."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Dynamic Product Filtering (Examples)",
+            "description": "All requests in this folder are EXAMPLES. The /products/filter endpoint supports fully dynamic filtering: you can combine any supported filter as query parameters (category, wardrobe-section, color, size, discounted, search, minPrice, maxPrice, inStock, sort, limit, etc.). Mix and match as needed! Filtering is dynamic and replaces all previous product listing/search endpoints.",
+            "item": [
+                {
+                    "name": "Filter Products (Example)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?category=knits&discounted=true&sort=price_desc&limit=5",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "category",
+                                    "value": "knits"
+                                },
+                                {
+                                    "key": "discounted",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "price_desc"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "5"
+                                }
+                            ]
+                        },
+                        "description": "Filter products dynamically by category, discount, sort, and limit. You can add any supported filter as a query parameter."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Filter Products by Wardrobe Section and Color",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?wardrobe_section=tops-and-coats&color=Cream",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "wardrobe_section",
+                                    "value": "tops-and-coats"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "Cream"
+                                }
+                            ]
+                        },
+                        "description": "Filter products by wardrobe section and color. Use 'wardrobe_section' as the filter key."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Filter by Price Range and In Stock",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?minPrice=100&maxPrice=500&inStock=true",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "minPrice",
+                                    "value": "100"
+                                },
+                                {
+                                    "key": "maxPrice",
+                                    "value": "500"
+                                },
+                                {
+                                    "key": "inStock",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "description": "Filter products by price range and only show those in stock."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Search Products by Text",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?search=alpaca",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "alpaca"
+                                }
+                            ]
+                        },
+                        "description": "Search products by text in name or description. Example: /products/filter?search=alpaca"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Top 3 Biggest Discounts",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?sort=discount_desc&limit=3",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "discount_desc"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "3"
+                                }
+                            ]
+                        },
+                        "description": "Show the top 3 products with the biggest discounts."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Filter by Size, Color, and Wardrobe Section",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?size=M&color=Cream&wardrobe_section=tops-and-coats",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "size",
+                                    "value": "M"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "Cream"
+                                },
+                                {
+                                    "key": "wardrobe_section",
+                                    "value": "tops-and-coats"
+                                }
+                            ]
+                        },
+                        "description": "Filter products by size, color, and wardrobe section. Use 'wardrobe_section' as the filter key."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "All In-Stock Discounted Products Sorted by Price Ascending",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?inStock=true&discounted=true&sort=price_asc",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "inStock",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "discounted",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "price_asc"
+                                }
+                            ]
+                        },
+                        "description": "Show all in-stock discounted products sorted by price ascending."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Newest Products First",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?sort=newest&limit=10",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "newest"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        },
+                        "description": "Show the 10 newest products based on creation date, newest first."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Oldest Products First",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/filter?sort=oldest&limit=10",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "filter"
+                            ],
+                            "query": [
+                                {
+                                    "key": "sort",
+                                    "value": "oldest"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        },
+                        "description": "Show the 10 oldest products based on creation date, oldest first."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Top 10 Best-Selling Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/bestsellers",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "bestsellers"
+                            ]
+                        },
+                        "description": "Retrieve the top 10 best-selling products."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Order Management Routes",
+            "item": [
+                {
+                    "name": "Create a New Order",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"customer_info\": {\n    \"first_name\": \"Mario\",\n    \"last_name\": \"Rossi\",\n    \"email\": \"customer@example.com\",\n    \"phone\": \"+39 123 456 7890\",\n    \"address\": \"Via Roma 123, Appartamento 4B\",\n    \"city\": \"Milano\",\n    \"state\": \"MI\",\n    \"postal_code\": \"20100\",\n    \"country\": \"Italy\",\n    \"is_guest\": false,\n    \"notes\": \"Please leave package with doorman if not at home.\"\n  },\n  \"items\": [\n    {\n      \"product_id\": 5,\n      \"product_variation_id\": 12,\n      \"quantity\": 2\n    },\n    {\n      \"product_id\": 8,\n      \"product_variation_id\": 24,\n      \"quantity\": 1\n    },\n    {\n      \"product_id\": 12,\n      \"product_variation_id\": 36,\n      \"quantity\": 3\n    }\n  ],\n  \"discount\": 10,\n  \"payment_method\": \"credit_card\",\n  \"shipping_method\": \"standard\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders"
+                            ]
+                        },
+                        "description": "Create a new order.\n\n- 'total' is calculated server-side as the sum of all item prices (price × quantity), applying product-level discounts automatically.\n- Each product's discount is applied before the order-level discount.\n- 'discount' is a percentage (e.g. 10 for 10% off the subtotal after product discounts).\n- 'delivery' is calculated automatically by the backend: it is 30 by default, but free if the order total is at least 500.\n- 'customer_info.email' is required.\n- Optional fields include: payment_method, shipping_method, notes, is_guest.\nIf email is missing, returns: { \"error\": \"Customer email is required for orders\" }"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the order to retrieve"
+                                }
+                            ]
+                        },
+                        "description": "Retrieve information about a specific order."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Order Status",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"Processing\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders/:id/status",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders",
+                                ":id",
+                                "status"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the order to update"
+                                }
+                            ]
+                        },
+                        "description": "Update the status of an order. Valid statuses: Pending, Processing, Completed, Cancelled."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Track Order",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"mario.rossi@example.com\",\n  \"order_id\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders/track",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders",
+                                "track"
+                            ]
+                        },
+                        "description": "Track order status using email and order ID."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Orders by Email",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders/email/:email",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders",
+                                "email",
+                                ":email"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "email",
+                                    "value": "customer@example.com",
+                                    "description": "The email address to retrieve orders for"
+                                }
+                            ]
+                        },
+                        "description": "Get all orders for a specific email address."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User Orders",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/orders/user/:userId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "orders",
+                                "user",
+                                ":userId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "userId",
+                                    "value": "1",
+                                    "description": "The ID of the user to retrieve orders for"
+                                }
+                            ]
+                        },
+                        "description": "Get all orders for an authenticated user (requires authentication)."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Newsletter Routes",
+            "item": [
+                {
+                    "name": "Subscribe to Newsletter",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"customer@example.com\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/newsletter/subscribe",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "newsletter",
+                                "subscribe"
+                            ]
+                        },
+                        "description": "Subscribe an email address to the newsletter."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Newsletter Subscribers",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/newsletter/subscribers",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "newsletter",
+                                "subscribers"
+                            ]
+                        },
+                        "description": "Get all newsletter subscribers (admin use only)."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Unsubscribe from Newsletter",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/newsletter/unsubscribe/:email",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "newsletter",
+                                "unsubscribe",
+                                ":email"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "email",
+                                    "value": "customer@example.com",
+                                    "description": "The email address to unsubscribe from the newsletter"
+                                }
+                            ]
+                        },
+                        "description": "Unsubscribe an email address from the newsletter."
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Wishlist Routes",
+            "item": [
+                {
+                    "name": "Get Wishlist Items",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wishlist",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wishlist"
+                            ]
+                        },
+                        "description": "Retrieve all wishlist items for the logged-in user. Returns product details including images."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add to Wishlist",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"productId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wishlist",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wishlist"
+                            ]
+                        },
+                        "description": "Add a product to the user's wishlist. Requires authentication and product ID in request body."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove from Wishlist",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wishlist/:productId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wishlist",
+                                ":productId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "productId",
+                                    "value": "1",
+                                    "description": "The ID of the product to remove from the wishlist"
+                                }
+                            ]
+                        },
+                        "description": "Remove a specific product from the user's wishlist using the product ID in the URL parameter."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Check if Product is in Wishlist",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wishlist/check/:productId",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wishlist",
+                                "check",
+                                ":productId"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "productId",
+                                    "value": "1",
+                                    "description": "The ID of the product to check in the wishlist"
+                                }
+                            ]
+                        },
+                        "description": "Check if a specific product is in the user's wishlist. Returns { inWishlist: true/false }."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Clear Wishlist",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wishlist",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wishlist"
+                            ]
+                        },
+                        "description": "Remove all items from the user's wishlist. This operation cannot be undone."
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Routes for managing user wishlist functionality. All routes require authentication with a valid JWT token."
+        },
+        {
+            "name": "Outdated Routes",
+            "description": "These routes have been replaced by the /products/filter endpoint for dynamic filtering.",
+            "item": [
+                {
+                    "name": "Get All Products (Outdated)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products"
+                            ]
+                        },
+                        "description": "Replaced by /products/filter. Use dynamic filtering instead."
+                    }
+                },
+                {
+                    "name": "Get Discounted Products (Outdated)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/discounted",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "discounted"
+                            ]
+                        },
+                        "description": "Replaced by /products/filter with discounted=true. Use dynamic filtering instead."
+                    }
+                },
+                {
+                    "name": "Search Products (Outdated)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/search?query=alpaca",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "search"
+                            ],
+                            "query": [
+                                {
+                                    "key": "query",
+                                    "value": "alpaca"
+                                }
+                            ]
+                        },
+                        "description": "Replaced by /products/filter?search=... Use dynamic filtering instead. Example: /products/search?query=alpaca"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Products by Wardrobe Section (Outdated)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/wardrobe-sections/:slug/products",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "wardrobe-sections",
+                                ":slug",
+                                "products"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "tops-and-coats",
+                                    "description": "The slug of the wardrobe section."
+                                }
+                            ]
+                        },
+                        "description": "Replaced by /products/filter with wardrobe_section=:slug. Use dynamic filtering instead."
+                    }
+                },
+                {
+                    "name": "Get Products by Category (Outdated)",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/categories/:slug",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "3000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "categories",
+                                ":slug"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "slug",
+                                    "value": "earrings",
+                                    "description": "The slug of the category."
+                                }
+                            ]
+                        },
+                        "description": "Replaced by /products/filter with category=:slug. Use dynamic filtering instead."
+                    }
+                }
+            ]
+        }
+    ]
+}

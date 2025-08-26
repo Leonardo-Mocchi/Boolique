@@ -1,0 +1,127 @@
+.hero-text-reveal {
+    min-height: 75vh;
+    background: linear-gradient(110deg, #181a20 70%, #f5c6aa22 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("./img/jumbo-mobile.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*     background: linear-gradient(130deg, rgba(26, 26, 26, 0.7) 0%, rgba(125, 162, 188, 0.3) 100%);
+ */
+    /* bisogna decidere se mettere questo  o l'effetto vetro */
+    z-index: 1;
+}
+
+.hero-text-content {
+    color: var(--bianco-avorio);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+}
+
+.split-headline {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.luxury-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: splitReveal 1s forwards;
+}
+
+.luxury-word.highlight {
+    color: var(--accent-color);
+    animation-delay: 0.4s;
+}
+
+@keyframes splitReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.typewriter {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    min-height: 2.2rem;
+    letter-spacing: 0.2px;
+    color: var(--bianco-avorio);
+    font-family: 'Jost', sans-serif;
+}
+
+.caret {
+    display: inline-block;
+    width: 1ch;
+    color: var(--accent-color);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.btn-reveal {
+    background: var(--light-bg);
+    color: var(--nero-carbone);
+    border: none;
+    border-radius: 0;
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 12px 28px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-reveal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-reveal:hover::before {
+    left: 0;
+}
+
+.btn-reveal:hover,
+.btn-reveal:focus {
+    background: white;
+    color: #fff;
+}
