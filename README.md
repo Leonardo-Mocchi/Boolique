@@ -29,7 +29,8 @@ For educational or testing purposes, the database schema is available upon reque
 ## Getting Started
 
 See `frontend/BackendRoutes.md` and backend documentation for API details and setup instructions. To run locally, follow the installation steps in the respective folders.
-You'll discover how autonomous you've become and how much your analysis, evaluation, and development skills have grown.  
+
+For easier API testing and exploration, a Postman route collection is included in the `frontend/postman_routes_collection.json` file. You can import this file directly into Postman to access and test all API routes immediately.
 
 ---
 
